@@ -138,17 +138,22 @@
   display: inline-block;
   padding: 8px 20px;
   font-size: 15px;
-  background-color: var(--marketplaceColor);
-  border-radius: 4px;
+  background-color: var(--marketplaceColorDark);
+  border-radius: 20px;
   color: white;
   text-decoration: none;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
   font-weight: 500;
   margin-top: 24px;
+  font-family: 'Outfit';
+  font-weight: bold;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  letter-spacing: 3px;
 
   &:hover {
     text-decoration: none;
-    background-color: var(--marketplaceColorDark);
+    background-color: var(--marketplaceColorLight);
   }
 }
 
@@ -173,7 +178,7 @@
 .darkTheme p,
 .darkTheme li,
 .darkTheme blockquote {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(170, 217, 217, 0.85);
 
   &::selection {
     background-color: cyan;
@@ -194,7 +199,7 @@
 
 /* button on dark theme */
 .darkTheme .ctaButton {
-  border: 1px solid var(--marketplaceColorDark);
+  border: 2px solid #aad9d9;
   text-decoration: none;
 
   &:hover {

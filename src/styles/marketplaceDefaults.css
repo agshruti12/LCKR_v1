@@ -22,9 +22,9 @@
    * In the future, we are planning to bring more --marketplace* CSS Properties
    * from hosted assets, which means that they could be managed through Console.
    */
-  --marketplaceColor: red; /* hsl(260, 63%, 46%) */
-  --marketplaceColorLight: red; /* hsl(260, 63%, 56%), +10L from marketplaceColor */
-  --marketplaceColorDark: red; /* hsl(260, 63%, 26%), -10L from marketplaceColor */
+  --marketplaceColor: #57bfc9; /* hsl(260, 63%, 46%) */
+  --marketplaceColorLight: #aad9d9; /* hsl(260, 63%, 56%), +10L from marketplaceColor */
+  --marketplaceColorDark: #035357; /* hsl(260, 63%, 26%), -10L from marketplaceColor */
 
   /* Colors used for different functions (like error texts) */
 
@@ -56,8 +56,9 @@
   --colorLightTransparent: rgba(255, 255, 255, 0.65);
 
   /* ================ Font ================ */
-  --fontFamily: -apple-system, BlinkMacSystemFont, 'Inter', Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --fontFamily: 'Outfit';
+  /* -apple-system, BlinkMacSystemFont, 'Inter', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; */
 
   --fontWeightRegular: 400;
   --fontWeightMedium: 500;

@@ -20,7 +20,7 @@
 
 /* Specific styles */
 .h1 {
-  font-size: 40px;
+  font-size: 340%;
 
   /* If ´& + *´ if used, margin-top needs !important to overwrite */
   /* Handle margin-top of next adjacent element against this heading element */

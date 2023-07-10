@@ -480,6 +480,8 @@
   "OrderBreakdown.shippingFee": "Shipping",
   "OrderBreakdown.subTotal": "Subtotal",
   "OrderBreakdown.total": "Total price",
+  "OrderPanel.addFavoriteButton": "Add to favorites",
+  "OrderPanel.unfavoriteButton": "Unfavorite",
   "OrderPanel.author": "{name}",
   "OrderPanel.closedListingButtonText": "Sorry, this listing has been closed.",
   "OrderPanel.ctaButtonMessageBooking": "Book now",
