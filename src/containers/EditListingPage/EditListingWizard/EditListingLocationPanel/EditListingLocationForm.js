@@ -7,6 +7,8 @@ import classNames from 'classnames';
 // Import configs and util modules
 import { intlShape, injectIntl, FormattedMessage } from '../../../../util/reactIntl';
 import { propTypes } from '../../../../util/types';
+import * as validators from '../../../../util/validators';
+
 import {
   autocompleteSearchRequired,
   autocompletePlaceSelected,
@@ -17,6 +19,8 @@ import {
 import {
   Form,
   FieldLocationAutocompleteInput,
+  FieldRadioButton,
+  FieldSelect,
   Button,
   FieldTextInput,
 } from '../../../../components';
@@ -40,6 +44,7 @@ export const EditListingLocationFormComponent = props => (
         intl,
         invalid,
         pristine,
+        required,
         saveActionMsg,
         updated,
         updateInProgress,
@@ -64,6 +69,9 @@ export const EditListingLocationFormComponent = props => (
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
+      const showAsRequired = pristine && required;
+
+      const requiredV = validators.required('This field is required.');
 
       return (
         <Form className={classes} onSubmit={handleSubmit}>
@@ -78,6 +86,21 @@ export const EditListingLocationFormComponent = props => (
               <FormattedMessage id="EditListingLocationForm.showListingFailed" />
             </p>
           ) : null}
+
+          <FieldSelect
+            id="lckrSelect"
+            name="lckrSelect"
+            label="Choose a LCKR:"
+            validate={requiredV}
+          >
+            <option value="">Pick something...</option>
+            <option value="quad">The Quad</option>
+            <option value="vp">Van Pelt Library</option>
+            <option value="pottruck">Pottruck</option>
+            <option value="detkin">Detkin</option>
+          </FieldSelect>
+
+          <br></br>
 
           <FieldLocationAutocompleteInput
             rootClassName={css.locationAddress}
@@ -100,7 +123,38 @@ export const EditListingLocationFormComponent = props => (
             )}
           />
 
-          <FieldTextInput
+          {/* <FieldRadioButton
+            id={`quad`}
+            name="option-group"
+            label="The Quad"
+            value="option1"
+            showAsRequired={showAsRequired}
+          />
+          <FieldRadioButton
+            id={`vp`}
+            name="option-group"
+            label="Van Pelt"
+            value="option2"
+            showAsRequired={showAsRequired}
+          />
+          <FieldRadioButton
+            id={`pottruck`}
+            name="option-group"
+            label="Pottruck"
+            value="option3"
+            showAsRequired={showAsRequired}
+          />
+          <FieldRadioButton
+            id={`detkin`}
+            name="option-group"
+            label="Detkin"
+            value="option4"
+            showAsRequired={showAsRequired}
+          /> */}
+
+          <br></br>
+
+          {/* <FieldTextInput
             className={css.building}
             type="text"
             name="building"
@@ -109,7 +163,7 @@ export const EditListingLocationFormComponent = props => (
             placeholder={intl.formatMessage({
               id: 'EditListingLocationForm.buildingPlaceholder',
             })}
-          />
+          /> */}
 
           <Button
             className={css.submitButton}

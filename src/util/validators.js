@@ -72,10 +72,14 @@ export const nonEmptyArray = message => value => {
 };
 
 export const autocompleteSearchRequired = message => value => {
+  // console.log('search validatory');
+  // console.log(value);
   return value && value.search ? VALID : message;
 };
 
 export const autocompletePlaceSelected = message => value => {
+  // console.log('place validator');
+  // console.log(value);
   const selectedPlaceIsValid =
     value &&
     value.selectedPlace &&

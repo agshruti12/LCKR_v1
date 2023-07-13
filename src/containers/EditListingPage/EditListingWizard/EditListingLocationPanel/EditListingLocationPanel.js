@@ -12,6 +12,8 @@ import { H3, ListingLink } from '../../../../components';
 // Import modules from this directory
 import EditListingLocationForm from './EditListingLocationForm';
 import css from './EditListingLocationPanel.module.css';
+import { types as sdkTypes } from '../../../../util/sdkLoader';
+const { LatLng } = sdkTypes;
 
 const getInitialValues = props => {
   const { listing } = props;
@@ -21,6 +23,7 @@ const getInitialValues = props => {
   // TODO bounds are missing - those need to be queried directly from Google Places
   const locationFieldsPresent = publicData?.location?.address && geolocation;
   const location = publicData?.location || {};
+  const lckrSelect = publicData?.lckrSelect || null;
   const { address, building } = location;
 
   return {
@@ -29,8 +32,10 @@ const getInitialValues = props => {
       ? {
           search: address,
           selectedPlace: { address, origin: geolocation },
+          // lckrSelect: lckrSelect,
         }
       : null,
+    lckrSelect: lckrSelect,
   };
 };
 
@@ -73,16 +78,72 @@ const EditListingLocationPanel = props => {
         className={css.form}
         initialValues={state.initialValues}
         onSubmit={values => {
-          const { building = '', location } = values;
+          console.log('ARRIVED HERE');
+          console.log(values);
+          const { building = '', lckrSelect } = values;
+
+          const vanPelt = {
+            selectedPlace: {
+              address:
+                'Van Pelt-Dietrich Library, 3420 Walnut St, Philadelphia, Pennsylvania 19104, United States',
+              origin: new LatLng(39.952714, -75.1939328),
+            },
+          };
+
+          const quad = {
+            selectedPlace: {
+              address:
+                'The Quadrangle, 3700 Spruce St, Philadelphia, Pennsylvania 19104, United States',
+              origin: new LatLng(39.9508201, -75.1973051),
+            },
+          };
+
+          const pott = {
+            selectedPlace: {
+              address:
+                'Pottruck Health & Fitness Center, 3701 Walnut St, Philadelphia, Pennsylvania 19104, United States',
+              origin: new LatLng(39.953488, -75.196903),
+            },
+          };
+
+          const detkin = {
+            selectedPlace: {
+              address: '3330 Walnut St, Philadelphia, PA 19104',
+              origin: new LatLng(39.9521718, -75.1910884),
+            },
+          };
+
+          const location =
+            lckrSelect === 'vp'
+              ? vanPelt
+              : lckrSelect === 'quad'
+              ? quad
+              : lckrSelect === 'pottruck'
+              ? pott
+              : lckrSelect === 'detkin'
+              ? detkin
+              : null;
+
+          console.log('this is it');
+          console.log(location);
+
           const {
             selectedPlace: { address, origin },
           } = location;
+
+          // const { testingRad } = rad;
+
+          // select option from the drop down, called locationSelect
+          // map each locationSelect to an ADDRESS (string) and ORIGIN (geolocation)
+          // make this a location object
+          // use this in the onSubmit to update publicData
 
           // New values for listing attributes
           const updateValues = {
             geolocation: origin,
             publicData: {
               location: { address, building },
+              lckrSelect: lckrSelect,
             },
           };
           // Save the initialValues to state
@@ -91,9 +152,14 @@ const EditListingLocationPanel = props => {
           setState({
             initialValues: {
               building,
-              location: { search: address, selectedPlace: { address, origin } },
+              location: {
+                search: address,
+                selectedPlace: { address, origin },
+              },
+              lckrSelect: lckrSelect,
             },
           });
+
           onSubmit(updateValues);
         }}
         saveActionMsg={submitButtonText}
