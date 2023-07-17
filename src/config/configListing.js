@@ -70,7 +70,7 @@ export const listingFields = [
     saveConfig: {
       label: 'Category',
       placeholderMessage: 'Select an option…',
-      isRequired: true,
+      isRequired: false,
       requiredMessage: 'You need to select a category.',
     },
   },
