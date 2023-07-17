@@ -93,7 +93,7 @@ export const EditListingLocationFormComponent = props => (
 
           {/* <h1>For your reference:</h1> */}
           <FormattedMessage id="EditListingLocationForm.headingText" />
-          <h1>heyyyy</h1>
+
           <br></br>
 
           <FieldSelect
