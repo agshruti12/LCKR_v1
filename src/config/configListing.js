@@ -158,6 +158,32 @@ export const listingFields = [
       isRequired: false,
     },
   },
+  {
+    key: 'lckrSelect',
+    scope: 'public',
+    schemaType: 'enum',
+    enumOptions: [
+      { option: 'Quad', label: 'Quad' },
+      { option: 'Van Pelt', label: 'Van Pelt' },
+      { option: 'Pottruck', label: 'Pottrucl' },
+      { option: 'Detkin', label: 'Detkin' },
+    ],
+    filterConfig: {
+      indexForSearch: true,
+      label: 'LCKR for Pick Up/Drop Off',
+      searchMode: 'has_any',
+      group: 'primary',
+    },
+    showConfig: {
+      label: 'LCKR',
+      isDetail: true,
+    },
+    // saveConfig: {
+    //   label: 'Accessories',
+    //   placeholderMessage: 'Select an option…',
+    //   isRequired: false,
+    // },
+  },
 
   // // An example of how to use transaction type specific custom fields and private data.
   // {

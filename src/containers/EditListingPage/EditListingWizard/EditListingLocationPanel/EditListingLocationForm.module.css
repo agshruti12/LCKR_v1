@@ -43,6 +43,7 @@
 }
 
 .validLocation {
+  pointer-events: none;
 }
 
 .locationAddress,
@@ -53,6 +54,8 @@
   @media (--viewportMedium) {
     margin-bottom: 32px;
   }
+
+  pointer-events: none;
 }
 
 .submitButton {

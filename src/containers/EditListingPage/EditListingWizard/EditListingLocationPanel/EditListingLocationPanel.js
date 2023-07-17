@@ -15,26 +15,73 @@ import css from './EditListingLocationPanel.module.css';
 import { types as sdkTypes } from '../../../../util/sdkLoader';
 const { LatLng } = sdkTypes;
 
+const vanPelt = {
+  selectedPlace: {
+    address:
+      'Van Pelt-Dietrich Library, 3420 Walnut St, Philadelphia, Pennsylvania 19104, United States',
+    origin: new LatLng(39.952714, -75.1939328),
+  },
+};
+
+const quad = {
+  selectedPlace: {
+    address: 'The Quadrangle, 3700 Spruce St, Philadelphia, Pennsylvania 19104, United States',
+    origin: new LatLng(39.9508201, -75.1973051),
+  },
+};
+
+const pott = {
+  selectedPlace: {
+    address:
+      'Pottruck Health & Fitness Center, 3701 Walnut St, Philadelphia, Pennsylvania 19104, United States',
+    origin: new LatLng(39.953488, -75.196903),
+  },
+};
+
+const detkin = {
+  selectedPlace: {
+    address: '3330 Walnut St, Philadelphia, PA 19104',
+    origin: new LatLng(39.9521718, -75.1910884),
+  },
+};
+
 const getInitialValues = props => {
   const { listing } = props;
-  const { geolocation, publicData } = listing?.attributes || {};
+  const { publicData } = listing?.attributes || {};
 
   // Only render current search if full place object is available in the URL params
   // TODO bounds are missing - those need to be queried directly from Google Places
-  const locationFieldsPresent = publicData?.location?.address && geolocation;
-  const location = publicData?.location || {};
+  // const location = publicData?.location || {};
   const lckrSelect = publicData?.lckrSelect || null;
-  const { address, building } = location;
+  const location =
+    lckrSelect === 'van-pelt'
+      ? vanPelt
+      : lckrSelect === 'quad'
+      ? quad
+      : lckrSelect === 'pottruck'
+      ? pott
+      : lckrSelect === 'detkin'
+      ? detkin
+      : null;
+
+  // const locationFieldsPresent = publicData?.location?.address && geolocation;
+
+  // console.log('location');
+  // console.log(location);
+
+  // const { address, building } = location;
+  const {
+    selectedPlace: { address, origin },
+  } = location;
+
+  // console.log(lckrSelect);
 
   return {
-    building,
-    location: locationFieldsPresent
-      ? {
-          search: address,
-          selectedPlace: { address, origin: geolocation },
-          // lckrSelect: lckrSelect,
-        }
-      : null,
+    // building,
+    location: {
+      search: address,
+      selectedPlace: { address, origin: origin },
+    },
     lckrSelect: lckrSelect,
   };
 };
@@ -78,43 +125,12 @@ const EditListingLocationPanel = props => {
         className={css.form}
         initialValues={state.initialValues}
         onSubmit={values => {
-          console.log('ARRIVED HERE');
-          console.log(values);
+          // console.log('ARRIVED HERE');
+          // console.log(values);
           const { building = '', lckrSelect } = values;
 
-          const vanPelt = {
-            selectedPlace: {
-              address:
-                'Van Pelt-Dietrich Library, 3420 Walnut St, Philadelphia, Pennsylvania 19104, United States',
-              origin: new LatLng(39.952714, -75.1939328),
-            },
-          };
-
-          const quad = {
-            selectedPlace: {
-              address:
-                'The Quadrangle, 3700 Spruce St, Philadelphia, Pennsylvania 19104, United States',
-              origin: new LatLng(39.9508201, -75.1973051),
-            },
-          };
-
-          const pott = {
-            selectedPlace: {
-              address:
-                'Pottruck Health & Fitness Center, 3701 Walnut St, Philadelphia, Pennsylvania 19104, United States',
-              origin: new LatLng(39.953488, -75.196903),
-            },
-          };
-
-          const detkin = {
-            selectedPlace: {
-              address: '3330 Walnut St, Philadelphia, PA 19104',
-              origin: new LatLng(39.9521718, -75.1910884),
-            },
-          };
-
           const location =
-            lckrSelect === 'vp'
+            lckrSelect === 'van-pelt'
               ? vanPelt
               : lckrSelect === 'quad'
               ? quad

@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { Field, Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
 import classNames from 'classnames';
+import * as validators from '../../../../util/validators';
 
 // Import util modules
 import { intlShape, injectIntl, FormattedMessage } from '../../../../util/reactIntl';
@@ -190,6 +191,8 @@ const EditListingDetailsFormComponent = props => (
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
 
+      const requiredV = validators.required('This field is required.');
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           <ErrorMessage fetchErrors={fetchErrors} />
@@ -236,6 +239,21 @@ const EditListingDetailsFormComponent = props => (
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
           />
+
+          {/* LCKR information hard coded */}
+
+          {/* <FieldSelect
+            id="lckrSelect"
+            name="lckrSelect"
+            label="Choose a LCKR:"
+            validate={requiredV}
+          >
+            <option value="">Pick something...</option>
+            <option value="quad">The Quad</option>
+            <option value="vp">Van Pelt Library</option>
+            <option value="pottruck">Pottruck</option>
+            <option value="detkin">Detkin</option>
+          </FieldSelect> */}
 
           <Button
             className={css.submitButton}

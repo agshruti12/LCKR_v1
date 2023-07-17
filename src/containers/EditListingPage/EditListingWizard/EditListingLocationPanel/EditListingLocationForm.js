@@ -63,6 +63,10 @@ export const EditListingLocationFormComponent = props => (
         id: 'EditListingLocationForm.optionalText',
       });
 
+      const headingText = intl.formatMessage({
+        id: 'EditListingLocationForm.headingText',
+      });
+
       const { updateListingError, showListingsError } = fetchErrors || {};
 
       const classes = classNames(css.root, className);
@@ -87,15 +91,21 @@ export const EditListingLocationFormComponent = props => (
             </p>
           ) : null}
 
+          {/* <h1>For your reference:</h1> */}
+          <FormattedMessage id="EditListingLocationForm.headingText" />
+
+          <br></br>
+
           <FieldSelect
             id="lckrSelect"
             name="lckrSelect"
-            label="Choose a LCKR:"
+            label="Selected LCKR:"
             validate={requiredV}
+            rootClassName={css.validLocation}
           >
             <option value="">Pick something...</option>
             <option value="quad">The Quad</option>
-            <option value="vp">Van Pelt Library</option>
+            <option value="van-pelt">Van Pelt Library</option>
             <option value="pottruck">Pottruck</option>
             <option value="detkin">Detkin</option>
           </FieldSelect>
@@ -108,7 +118,7 @@ export const EditListingLocationFormComponent = props => (
             iconClassName={css.locationAutocompleteInputIcon}
             predictionsClassName={css.predictionsRoot}
             validClassName={css.validLocation}
-            autoFocus={autoFocus}
+            // autoFocus={autoFocus}
             name="location"
             label={intl.formatMessage({ id: 'EditListingLocationForm.address' })}
             placeholder={intl.formatMessage({
