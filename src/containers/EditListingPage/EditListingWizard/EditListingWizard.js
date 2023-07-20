@@ -321,14 +321,15 @@ class EditListingWizard extends Component {
       (hasRequirements(stripeAccountData, 'past_due') ||
         hasRequirements(stripeAccountData, 'currently_due'));
 
-    if (stripeConnected && !requirementsMissing) {
-      onPublishListingDraft(id);
-    } else {
-      this.setState({
-        draftId: id,
-        showPayoutDetails: true,
-      });
-    }
+    // removing stripe check before publishing listing
+    // if (stripeConnected && !requirementsMissing) {
+    onPublishListingDraft();
+    // } else {
+    //   this.setState({
+    //     draftId: id,
+    //     showPayoutDetails: true,
+    //   });
+    // }
   }
 
   handlePayoutModalClose() {

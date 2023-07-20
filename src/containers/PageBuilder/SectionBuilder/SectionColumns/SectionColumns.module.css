@@ -36,3 +36,28 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.ctaButton {
+  /* composes: align; */
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 15px;
+  background-color: var(--marketplaceColorDark);
+  border-radius: 20px;
+  color: black;
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  font-weight: 500;
+  margin-top: 24px;
+  font-family: 'Outfit';
+  font-weight: bold;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  letter-spacing: 3px;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    background-color: var(--marketplaceColorLight);
+  }
+}

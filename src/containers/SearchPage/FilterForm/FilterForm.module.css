@@ -16,6 +16,7 @@
 .submitButton {
   composes: textSmall from global;
   font-weight: var(--fontWeightMedium);
+  font-size: 100%;
 
   /* Layout */
   padding: 0;

@@ -8,7 +8,9 @@ import { connect } from 'react-redux';
 import { camelize } from '../../util/string';
 import { propTypes } from '../../util/types';
 
-import { H1 } from '../PageBuilder/Primitives/Heading';
+import { H1, H2Left } from '../PageBuilder/Primitives/Heading';
+import SectionArticleLeft from '../PageBuilder/SectionBuilder/SectionArticleLeft';
+import { exposeContentAsChildren } from '../PageBuilder/Field/Field.helpers';
 
 const PageBuilder = loadable(() =>
   import(/* webpackChunkName: "PageBuilder" */ '../PageBuilder/PageBuilder')
@@ -19,6 +21,17 @@ const SectionBuilder = loadable(
     resolveComponent: components => components.SectionBuilder,
   }
 );
+
+const sectionOverrides = {
+  article: { component: SectionArticleLeft },
+};
+
+const fieldOverrides = {
+  heading2: {
+    component: H2Left,
+    pickValidProps: exposeContentAsChildren,
+  },
+};
 
 import FallbackPage, { fallbackSections } from './FallbackPage';
 import { ASSET_NAME } from './TermsOfServicePage.duck';
@@ -46,10 +59,12 @@ const TermsOfServiceContent = props => {
     <SectionBuilder
       {...sectionsData}
       options={{
-        fieldComponents: {
-          heading1: { component: CustomHeading1, pickValidProps: exposeContentAsChildren },
-        },
+        // fieldComponents: {
+        //   // heading1: { component: CustomHeading1, pickValidProps: exposeContentAsChildren },
+        // },
+        // fieldComponents: fieldOverrides,
         isInsideContainer: true,
+        sectionComponents: sectionOverrides,
       }}
     />
   );
@@ -63,6 +78,7 @@ const TermsOfServicePageComponent = props => {
     <PageBuilder
       pageAssetsData={pageAssetsData?.[camelize(ASSET_NAME)]?.data}
       inProgress={inProgress}
+      options={{ fieldComponents: fieldOverrides }}
       error={error}
       fallbackPage={<FallbackPage />}
     />

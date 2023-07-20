@@ -84,6 +84,7 @@
 .cancelButton {
   composes: filterButton;
   color: var(--colorGrey300);
+  font-size: 150%;
 
   /* Layout */
   margin: 0 24px 0 24px;
@@ -100,6 +101,7 @@
 .applyButton {
   composes: filterButton;
   color: var(--marketplaceColor);
+  font-size: 150%;
 
   /* Layout */
   margin: 0;

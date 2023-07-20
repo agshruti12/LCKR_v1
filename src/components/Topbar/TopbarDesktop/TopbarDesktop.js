@@ -145,11 +145,17 @@ const TopbarDesktop = props => {
         alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
       />
       {search}
+      <NamedLink className={css.storyLink} name="CMSPage" params={{ pageId: 'about' }}>
+        <span className={css.createListing}>
+          <FormattedMessage id="TopbarDesktop.aboutUs" />
+        </span>
+      </NamedLink>
       <NamedLink className={css.createListingLink} name="NewListingPage">
         <span className={css.createListing}>
           <FormattedMessage id="TopbarDesktop.createListing" />
         </span>
       </NamedLink>
+
       {inboxLink}
       {profileMenu}
       {signupLink}

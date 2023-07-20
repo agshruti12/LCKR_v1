@@ -75,6 +75,12 @@ const routeConfiguration = (layoutConfig) => {
       component: LandingPage,
       loadData: pageDataLoadingAPI.LandingPage.loadData,
     },
+    // {
+    //   path: '/p/about',
+    //   name: 'AboutUsPage',
+    //   // component: LandingPage,
+    //   // loadData: pageDataLoadingAPI.LandingPage.loadData,
+    // },
     {
       path: '/p/:pageId',
       name: 'CMSPage',

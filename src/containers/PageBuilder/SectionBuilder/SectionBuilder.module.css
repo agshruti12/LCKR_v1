@@ -38,6 +38,7 @@
   & h2 + h5,
   & h2 + h6 {
     margin-top: 12px;
+    font-size: 170%;
   }
 
   & h3 + p,
@@ -134,7 +135,7 @@
 }
 
 .ctaButton {
-  composes: align;
+  /* composes: align; */
   display: inline-block;
   padding: 8px 20px;
   font-size: 15px;
@@ -150,6 +151,7 @@
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
   letter-spacing: 3px;
+  text-align: center;
 
   &:hover {
     text-decoration: none;
@@ -178,7 +180,8 @@
 .darkTheme p,
 .darkTheme li,
 .darkTheme blockquote {
-  color: rgba(170, 217, 217, 0.85);
+  color: rgb(190, 233, 233);
+  /* color: rgba(170, 217, 217, 0.85); */
 
   &::selection {
     background-color: cyan;

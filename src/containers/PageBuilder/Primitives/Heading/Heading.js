@@ -42,9 +42,19 @@ export const H2 = React.forwardRef((props, ref) => {
     <Heading rootClassName={rootClass || css.h2} as={as || 'h2'} tagRef={ref} {...otherProps} />
   );
 });
-H2.displayName = 'H2';
+H2.displayName = 'H2Left';
 H2.defaultProps = defaultPropsHeading;
 H2.propTypes = propTypesHeading;
+
+export const H2Left = React.forwardRef((props, ref) => {
+  const { rootClassName: rootClass, as, ...otherProps } = props;
+  return (
+    <Heading rootClassName={rootClass || css.h2left} as={as || 'h2'} tagRef={ref} {...otherProps} />
+  );
+});
+H2Left.displayName = 'H2Left';
+H2Left.defaultProps = defaultPropsHeading;
+H2Left.propTypes = propTypesHeading;
 
 export const H3 = React.forwardRef((props, ref) => {
   const { rootClassName: rootClass, as, ...otherProps } = props;

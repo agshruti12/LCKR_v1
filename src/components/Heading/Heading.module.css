@@ -8,6 +8,11 @@
   composes: h2 from global;
 }
 
+.h2left {
+  composes: h2 from global;
+  text-align: left;
+}
+
 .h3 {
   composes: h3 from global;
 }
