@@ -6,7 +6,7 @@ import { injectIntl, intlShape } from '../../../util/reactIntl';
 import { parseSelectFilterOptions } from '../../../util/search';
 import { SCHEMA_TYPE_ENUM, SCHEMA_TYPE_MULTI_ENUM } from '../../../util/types';
 
-import { FieldCheckbox } from '../../../components';
+import { FieldCheckbox, MaintenanceMode } from '../../../components';
 
 import FilterPlain from '../FilterPlain/FilterPlain';
 import FilterPopup from '../FilterPopup/FilterPopup';
@@ -47,7 +47,7 @@ const format = (selectedOptions, queryParamName, schemaType, searchMode) => {
 
   const mode = schemaType === SCHEMA_TYPE_MULTI_ENUM && searchMode ? `${searchMode}:` : '';
   // const mode = schemaType === SCHEMA_TYPE_MULTI_ENUM && searchMode ? 'has_any:' : '';
-  const value = hasOptionsSelected ? `has_any:${selectedOptions.join(',')}` : null;
+  const value = hasOptionsSelected ? `${mode}${selectedOptions.join(',')}` : null;
   console.log('formatting right now');
   console.log(value);
   return { [queryParamName]: value };

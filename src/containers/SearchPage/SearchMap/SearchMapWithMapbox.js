@@ -337,11 +337,18 @@ class SearchMapWithMapbox extends Component {
   initializeMap() {
     const { offsetHeight, offsetWidth } = this.state.mapContainer;
     const hasDimensions = offsetHeight > 0 && offsetWidth > 0;
+
+    const LAT = 39.95180289;
+    const LNG = -75.19428374;
+    const ZOOM = 15;
+
     if (hasDimensions) {
       this.map = new window.mapboxgl.Map({
         container: this.state.mapContainer,
         style: 'mapbox://styles/mapbox/streets-v10',
         scrollZoom: false,
+        center: [LNG, LAT],
+        zoom: ZOOM,
       });
       window.mapboxMap = this.map;
 
