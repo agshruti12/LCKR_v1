@@ -180,7 +180,8 @@
 .darkTheme p,
 .darkTheme li,
 .darkTheme blockquote {
-  color: rgb(190, 233, 233);
+  color: #dbfdff;
+  /* font-weight: semibold; */
   /* color: rgba(170, 217, 217, 0.85); */
 
   &::selection {

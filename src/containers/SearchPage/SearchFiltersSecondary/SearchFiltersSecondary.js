@@ -64,7 +64,6 @@ class SearchFiltersSecondaryComponent extends Component {
 
     return (
       <div className={classes}>
-        <div className={css.filtersWrapper}>{children}</div>
         <div className={css.footer}>
           <InlineTextButton rootClassName={css.resetAllButton} onClick={this.resetAll}>
             <FormattedMessage id={'SearchFiltersSecondary.resetAll'} />
@@ -76,6 +75,7 @@ class SearchFiltersSecondaryComponent extends Component {
             <FormattedMessage id={'SearchFiltersSecondary.apply'} />
           </InlineTextButton>
         </div>
+        <div className={css.filtersWrapper}>{children}</div>
       </div>
     );
   }
