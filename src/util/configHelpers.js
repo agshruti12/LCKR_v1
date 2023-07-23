@@ -535,8 +535,6 @@ const restructureListingFields = hostedListingFields => {
     const enumOptionsMaybe = ['enum', 'multi-enum'].includes(schemaType) ? { enumOptions } : {};
     const { required: isRequired, ...restSaveConfig } = saveConfig;
 
-    console.log('key');
-    console.log(key);
     const isSubCategory = key === 'skisnow' || 'sports' || 'hikingandcamping';
     const searchModeMaybe = isSubCategory ? { searchMode: 'has_any' } : {};
 

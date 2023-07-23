@@ -109,8 +109,8 @@ const OrderPanel = props => {
     marketplaceName,
     fetchLineItemsInProgress,
     fetchLineItemsError,
-    onToggleFavorites,
-    currentUser,
+    // onToggleFavorites,
+    // currentUser,
   } = props;
 
   const transactionProcessAlias = listing?.attributes?.publicData?.transactionProcessAlias || '';
@@ -176,21 +176,21 @@ const OrderPanel = props => {
   const classes = classNames(rootClassName || css.root, className);
   const titleClasses = classNames(titleClassName || css.orderTitle);
 
-  const isFavorite = currentUser?.attributes.profile.privateData.favorites?.includes(
-    listing.id.uuid
-  );
+  // const isFavorite = currentUser?.attributes.profile.privateData.favorites?.includes(
+  //   listing.id.uuid
+  // );
 
-  const toggleFavorites = () => onToggleFavorites(isFavorite);
+  // const toggleFavorites = () => onToggleFavorites(isFavorite);
 
-  const favoriteButton = isFavorite ? (
-    <SecondaryButton className={css.favoriteButton} onClick={toggleFavorites}>
-      <FormattedMessage id="OrderPanel.unfavoriteButton" />
-    </SecondaryButton>
-  ) : (
-    <Button className={css.favoriteButton} onClick={toggleFavorites}>
-      <FormattedMessage id="OrderPanel.addFavoriteButton" />
-    </Button>
-  );
+  // const favoriteButton = isFavorite ? (
+  //   <SecondaryButton className={css.favoriteButton} onClick={toggleFavorites}>
+  //     <FormattedMessage id="OrderPanel.unfavoriteButton" />
+  //   </SecondaryButton>
+  // ) : (
+  //   <Button className={css.favoriteButton} onClick={toggleFavorites}>
+  //     <FormattedMessage id="OrderPanel.addFavoriteButton" />
+  //   </Button>
+  // );
 
   return (
     <div className={classes}>
@@ -230,7 +230,7 @@ const OrderPanel = props => {
             <FormattedMessage id="OrderPanel.author" values={{ name: authorDisplayName }} />
           </span>
         </div>
-        {favoriteButton}
+        {/* {favoriteButton} */}
         {showPriceMissing ? (
           <PriceMissing />
         ) : showInvalidCurrency ? (
@@ -384,8 +384,8 @@ OrderPanel.propTypes = {
   intl: intlShape.isRequired,
 
   // favorites button
-  onToggleFavorites: func.isRequired,
-  currentUser: propTypes.currentUser.isRequired,
+  // onToggleFavorites: func.isRequired,
+  // currentUser: propTypes.currentUser.isRequired,
 };
 
 export default compose(
