@@ -332,9 +332,10 @@ export const ListingPageComponent = props => {
             />
             {listingConfig.listingFields.reduce((pickedElements, config) => {
               const { key, enumOptions, scope = 'public' } = config;
+
               const value =
                 scope === 'public' ? publicData[key] : scope === 'metadata' ? metadata[key] : null;
-              const hasValue = value !== null;
+              const hasValue = value !== null && key !== 'seo';
               return hasValue && config.schemaType === SCHEMA_TYPE_MULTI_ENUM
                 ? [
                     ...pickedElements,

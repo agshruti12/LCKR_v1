@@ -69,11 +69,20 @@ const CustomFieldMultiEnum = props => {
 const CustomFieldText = props => {
   const { name, fieldConfig, defaultRequiredMessage, intl } = props;
   const { label, placeholderMessage, isRequired, requiredMessage } = fieldConfig?.saveConfig || {};
+  console.log(props);
+
   const validateMaybe = isRequired
     ? { validate: required(requiredMessage || defaultRequiredMessage) }
     : {};
-  const placeholder =
-    placeholderMessage || intl.formatMessage({ id: 'CustomExtendedDataField.placeholderText' });
+
+  // const textID =
+  //   name === 'seo'
+  //     ? `CustomExtendedDataField_${name}.placeholderText`
+  //     : 'CustomExtendedDataField.placeholderText';
+  const textID = `CustomExtendedDataField_${name}.placeholderText`;
+
+  console.log(textID);
+  const placeholder = placeholderMessage || intl.formatMessage({ id: textID });
 
   return (
     <FieldTextInput
