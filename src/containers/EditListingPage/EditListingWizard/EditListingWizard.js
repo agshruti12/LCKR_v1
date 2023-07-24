@@ -323,7 +323,7 @@ class EditListingWizard extends Component {
 
     // removing stripe check before publishing listing
     // if (stripeConnected && !requirementsMissing) {
-    onPublishListingDraft();
+    onPublishListingDraft(id);
     // } else {
     //   this.setState({
     //     draftId: id,
