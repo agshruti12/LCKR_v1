@@ -1,7 +1,7 @@
 .link {
   display: inline-block;
-  color: var(--marketplaceColor);
-
+  /* color: var(--marketplaceColor); */
+  color: white;
   /* fallback option */
   word-break: break-all;
   /* use break-word if available */
