@@ -14,7 +14,7 @@ const NoSearchResultsMaybe = props => {
       <FormattedMessage id="SearchPage.noResults" />
       <br />
       <br />
-      <ExternalLink href="https://forms.gle/wGqfgTTm8ShJWiub6">
+      <ExternalLink href="https://forms.gle/tDzGq9DrEEnqLj636">
         Can't find what you're looking for? Click here!
       </ExternalLink>
       <br />
