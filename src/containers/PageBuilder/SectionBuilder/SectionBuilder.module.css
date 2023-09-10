@@ -209,6 +209,7 @@
   background-color: white;
   color: darkcyan;
   &:hover {
+    background-color:#aad9d9;
     color: white;
   }
 }
