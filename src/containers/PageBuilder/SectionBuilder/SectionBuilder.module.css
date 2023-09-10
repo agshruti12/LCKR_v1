@@ -140,6 +140,7 @@
   padding: 12px 45px;
   font-size: 20px;
   background-color: var(--marketplaceColorDark);
+  width: 100%;
   border-radius: 81px;
   color: white;
   text-decoration: none;
@@ -205,7 +206,8 @@
 .darkTheme .ctaButton {
   border: 2px solid #aad9d9;
   text-decoration: none;
-
+  background-color: white;
+  color: darkcyan;
   &:hover {
     color: white;
   }
