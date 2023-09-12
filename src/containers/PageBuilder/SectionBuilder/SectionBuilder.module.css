@@ -204,7 +204,7 @@
 
 /* button on dark theme */
 .darkTheme .ctaButton {
-  box-shadow: 0 0 100px rgba(255, 255, 255, 9.7);
+  
   border: 2px solid #aad9d9;
   text-decoration: none;
   background-color: white;
