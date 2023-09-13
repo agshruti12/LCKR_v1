@@ -135,6 +135,7 @@
 }
 
 .ctaButton {
+  /* composes: align; */
   box-shadow: 0 0 100px rgba(255, 255, 255, 9.7);
   display: inline-block;
   padding: 12px 45px;
@@ -144,23 +145,6 @@
   border-radius: 81px;
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  margin-top: 24px;
-  font-family: 'Outfit';
-  font-weight: bold;
-  transition: all 0.4s ease;
-  -webkit-transition: all 0.4s ease;
-  letter-spacing: 3px;
-  text-align: center;
-  display: inline-block;
-  padding: 12px 45px;
-  font-size: 20px;
-  background-color: var(--marketplaceColorDark);
-  width: 100%;
-  border-radius: 81px;
-  color: white;
-  text-decoration: none;
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
   font-weight: 500;
   margin-top: 24px;
   font-family: 'Outfit';
