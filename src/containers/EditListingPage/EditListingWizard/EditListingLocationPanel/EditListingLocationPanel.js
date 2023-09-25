@@ -15,33 +15,24 @@ import css from './EditListingLocationPanel.module.css';
 import { types as sdkTypes } from '../../../../util/sdkLoader';
 const { LatLng } = sdkTypes;
 
-const vanPelt = {
+const jmhh = {
   selectedPlace: {
-    address:
-      'Van Pelt-Dietrich Library, 3420 Walnut St, Philadelphia, Pennsylvania 19104, United States',
-    origin: new LatLng(39.952714, -75.1939328),
+    address: 'Jon M. Huntsman Hall, 3730 Walnut St, Philadelphia, PA 19104',
+    origin: new LatLng(39.955029, -75.210083),
   },
 };
 
-const quad = {
+const ccc = {
   selectedPlace: {
-    address: 'The Quadrangle, 3700 Spruce St, Philadelphia, Pennsylvania 19104, United States',
-    origin: new LatLng(39.9508201, -75.1973051),
+    address: '3907 Walnut St, Philadelphia, PA 19104',
+    origin: new LatLng(39.954109, -75.20063),
   },
 };
 
-const pott = {
+const golf = {
   selectedPlace: {
-    address:
-      'Pottruck Health & Fitness Center, 3701 Walnut St, Philadelphia, Pennsylvania 19104, United States',
-    origin: new LatLng(39.953488, -75.196903),
-  },
-};
-
-const detkin = {
-  selectedPlace: {
-    address: '3330 Walnut St, Philadelphia, PA 19104',
-    origin: new LatLng(39.9521718, -75.1910884),
+    address: '2116 Chestnut St, Philadelphia, PA 19103',
+    origin: new LatLng(39.95211, -75.176338),
   },
 };
 
@@ -54,15 +45,7 @@ const getInitialValues = props => {
   // const location = publicData?.location || {};
   const lckrSelect = publicData?.lckrSelect || null;
   const location =
-    lckrSelect === 'van-pelt'
-      ? vanPelt
-      : lckrSelect === 'quad'
-      ? quad
-      : lckrSelect === 'pottruck'
-      ? pott
-      : lckrSelect === 'detkin'
-      ? detkin
-      : null;
+    lckrSelect === 'jmhh' ? jmhh : lckrSelect === 'ccc' ? ccc : lckrSelect === 'golf' ? golf : null;
 
   // const locationFieldsPresent = publicData?.location?.address && geolocation;
 
@@ -130,14 +113,12 @@ const EditListingLocationPanel = props => {
           const { building = '', lckrSelect } = values;
 
           const location =
-            lckrSelect === 'van-pelt'
-              ? vanPelt
-              : lckrSelect === 'quad'
-              ? quad
-              : lckrSelect === 'pottruck'
-              ? pott
-              : lckrSelect === 'detkin'
-              ? detkin
+            lckrSelect === 'jmhh'
+              ? jmhh
+              : lckrSelect === 'ccc'
+              ? ccc
+              : lckrSelect === 'golf'
+              ? golf
               : null;
 
           console.log('this is it');
