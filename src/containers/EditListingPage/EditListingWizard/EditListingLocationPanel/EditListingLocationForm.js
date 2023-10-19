@@ -104,6 +104,8 @@ export const EditListingLocationFormComponent = props => (
             rootClassName={css.validLocation}
           >
             <option value="">Pick something...</option>
+            <option value="vp">Van Pelt Library</option>
+            <option value="pott">Pottruck</option>
             <option value="jmhh">Huntsman Hall</option>
             <option value="ccc">Campus Copy Center</option>
             <option value="golf">Five Iron Golf</option>

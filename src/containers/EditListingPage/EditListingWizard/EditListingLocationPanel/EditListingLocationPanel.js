@@ -36,6 +36,20 @@ const golf = {
   },
 };
 
+const pott = {
+  selectedPlace: {
+    address: '3701 Walnut St, Philadelphia, PA 19104',
+    origin: new LatLng(39.95372, -75.196899),
+  },
+};
+
+const vp = {
+  selectedPlace: {
+    address: '3420 Walnut St, Philadelphia, PA 19104',
+    origin: new LatLng(39.952801, -75.192398),
+  },
+};
+
 const getInitialValues = props => {
   const { listing } = props;
   const { publicData } = listing?.attributes || {};
@@ -45,8 +59,17 @@ const getInitialValues = props => {
   // const location = publicData?.location || {};
   const lckrSelect = publicData?.lckrSelect || null;
   const location =
-    lckrSelect === 'jmhh' ? jmhh : lckrSelect === 'ccc' ? ccc : lckrSelect === 'golf' ? golf : null;
-
+    lckrSelect === 'jmhh'
+      ? jmhh
+      : lckrSelect === 'ccc'
+      ? ccc
+      : lckrSelect === 'golf'
+      ? golf
+      : lckrSelect === 'vp'
+      ? vp
+      : lckrSelect === 'pott'
+      ? pott
+      : null;
   // const locationFieldsPresent = publicData?.location?.address && geolocation;
 
   // console.log('location');
@@ -119,6 +142,10 @@ const EditListingLocationPanel = props => {
               ? ccc
               : lckrSelect === 'golf'
               ? golf
+              : lckrSelect === 'vp'
+              ? vp
+              : lckrSelect === 'pott'
+              ? pott
               : null;
 
           console.log('this is it');
