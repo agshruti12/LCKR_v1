@@ -107,6 +107,7 @@ export const EditListingLocationFormComponent = props => (
             <option value="vp">Van Pelt Library</option>
             <option value="pott">Pottruck</option>
             <option value="jmhh">Huntsman Hall</option>
+            <option value="wmaker">Wanamaker House</option>
             <option value="ccc">Campus Copy Center</option>
             <option value="golf">Five Iron Golf</option>
             {/* <option value="detkin">Detkin</option> */}

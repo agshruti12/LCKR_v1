@@ -50,6 +50,13 @@ const vp = {
   },
 };
 
+const wmaker = {
+  selectedPlace: {
+    address: '2020 Walnut St, Philadelphia, PA 19103',
+    origin: new LatLng(39.95032, -75.17508),
+  },
+};
+
 const getInitialValues = props => {
   const { listing } = props;
   const { publicData } = listing?.attributes || {};
@@ -69,6 +76,8 @@ const getInitialValues = props => {
       ? vp
       : lckrSelect === 'pott'
       ? pott
+      : lckrSelect === 'wmaker'
+      ? wmaker
       : null;
   // const locationFieldsPresent = publicData?.location?.address && geolocation;
 
@@ -146,6 +155,8 @@ const EditListingLocationPanel = props => {
               ? vp
               : lckrSelect === 'pott'
               ? pott
+              : lckrSelect === 'wmaker'
+              ? wmaker
               : null;
 
           console.log('this is it');
